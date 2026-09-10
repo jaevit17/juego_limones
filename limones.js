@@ -31,3 +31,8 @@ function moverIzquierda(){
     personajeX=personajeX-10;
     actualizarPantalla();
 }
+//mover Derecha
+function moverDerecha(){
+    personajeX=personajeX+10;
+    actualizarPantalla();
+}
