@@ -13,10 +13,11 @@ let limonX=canvas.width/2;
 let limonY=0;
 let puntaje=0;
 let vidas=3;
-let velocidadCaida=100;
+let velocidadCaida = 200;
+let cambioVelocidad;
 
 function iniciar(){
-    setInterval(bajarLimon,velocidadCaida);//primerParametro: function segundoParametro: tiempo en milisegundos
+    cambioVelocidad=setInterval(bajarLimon, velocidadCaida);;//primerParametro: function segundoParametro: tiempo en milisegundos
     dibujarSuelo();
     dibujarPersonaje();
     aparecerLimon();
@@ -40,12 +41,12 @@ function actualizarPantalla(){
 }
 //mover Izquierda 
 function moverIzquierda(){
-    personajeX=personajeX-10;
+    personajeX=personajeX-30;
     actualizarPantalla();
 }
 //mover Derecha
 function moverDerecha(){
-    personajeX=personajeX+10;
+    personajeX=personajeX+30;
     actualizarPantalla();
 }
 function dibujarLimon(){
@@ -67,6 +68,24 @@ function detectarAtrapado(){
         aparecerLimon();
         puntaje=puntaje+1;
         mostrarEnSpan("txtPuntaje",puntaje);
+    }
+    //Puntaje 3 = velocidad 150
+    if(puntaje==3){
+    velocidadCaida=150;
+    //limpiar intervalo
+    clearInterval(cambioVelocidad);
+    cambioVelocidad=setInterval(bajarLimon, velocidadCaida);
+}
+    //Puntaje 6 = velocidad 100
+    if(puntaje==6){
+    velocidadCaida=100;
+    //limpiar intervalo
+    clearInterval(cambioVelocidad);
+    cambioVelocidad=setInterval(bajarLimon, velocidadCaida);
+}
+    //Puntaje 10 "ES EL GANADOR" 
+    if(puntaje==10){
+        alert("🍋 ATRAPASTE LOS LIMONES█▓▒░ GΛNΛDØR ░▒▓█ , ES MOMENTO DE UNA LIMONADA ¡FELICIDADES GANADOR!! 🏆");
     }
 }
 function aparecerLimon(){
