@@ -41,12 +41,12 @@ function actualizarPantalla(){
 }
 //mover Izquierda 
 function moverIzquierda(){
-    personajeX=personajeX-30;
+    personajeX=personajeX-10;
     actualizarPantalla();
 }
 //mover Derecha
 function moverDerecha(){
-    personajeX=personajeX+30;
+    personajeX=personajeX+10;
     actualizarPantalla();
 }
 function dibujarLimon(){
@@ -86,6 +86,8 @@ function detectarAtrapado(){
     //Puntaje 10 "ES EL GANADOR" 
     if(puntaje==10){
         alert("🍋 ATRAPASTE LOS LIMONES█▓▒░ GΛNΛDØR ░▒▓█ , ES MOMENTO DE UNA LIMONADA ¡FELICIDADES GANADOR!! 🏆");
+        //detener setInterval
+        clearInterval(cambioVelocidad);
     }
 }
 function aparecerLimon(){
@@ -102,5 +104,7 @@ function detectarPiso(){
     //GAME OVER
     if(vidas==0){
         alert("█▓▒░ GΛME ØVER ░▒▓█");
+        //detener setInterval
+        clearInterval(cambioVelocidad);
     }
 }
