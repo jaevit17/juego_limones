@@ -108,3 +108,16 @@ function detectarPiso(){
         clearInterval(cambioVelocidad);
     }
 }
+function reiniciar(){
+    //Al perder o ganar el setInterval anterior queda detenido
+    //iniciar() crea uno nuevo
+    //el exististente esta activo se evita terminar con dos intervalos
+    //usando clearInterval para limpiar intervalo y que comience en 200.
+    clearInterval(cambioVelocidad);
+    vidas=3;
+    puntaje=0;
+    velocidadCaida=200;
+    mostrarEnSpan("txtPuntaje",puntaje);
+    mostrarEnSpan("txtVidas",vidas);
+    iniciar();
+}
