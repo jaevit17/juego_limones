@@ -1,11 +1,11 @@
 let canvas=document.getElementById("areaJuego");
 let ctx=canvas.getContext("2d");
 
-const ALTURA_SUELO=20;
-const ALTURA_PERSONAJE=60;
-const ANCHO_PERSONAJE=40;
-const ANCHO_LIMON=20;
-const ALTURA_LIMON=20;
+const ALTURA_SUELO=30;
+const ALTURA_PERSONAJE=90;
+const ANCHO_PERSONAJE=80;
+const ANCHO_LIMON=30;
+const ALTURA_LIMON=30;
 
 let personajeX=canvas.width/2;
 let personajeY=canvas.height-(ALTURA_SUELO+ALTURA_PERSONAJE);
@@ -15,6 +15,10 @@ let puntaje=0;
 let vidas=3;
 let velocidadCaida = 200;
 let cambioVelocidad;
+let imagenLimon=new Image();
+imagenLimon.src="limon.png";
+let imagenCanasta=new Image();
+imagenCanasta.src="canasta.png";
 
 function iniciar(){
     cambioVelocidad=setInterval(bajarLimon, velocidadCaida);;//primerParametro: function segundoParametro: tiempo en milisegundos
@@ -23,12 +27,13 @@ function iniciar(){
     aparecerLimon();
 }
 function dibujarSuelo(){
-    ctx.fillStyle ="blue";
+    ctx.fillStyle ="#d27aab";
     ctx.fillRect(0,canvas.height-ALTURA_SUELO,canvas.width,ALTURA_SUELO);
 }
 function dibujarPersonaje(){
-    ctx.fillStyle="red";
-    ctx.fillRect(personajeX,personajeY,ANCHO_PERSONAJE,ALTURA_PERSONAJE);
+    //ctx.fillStyle="#D1173D";
+    //ctx.fillRect(personajeX,personajeY,ANCHO_PERSONAJE,ALTURA_PERSONAJE);
+    ctx.drawImage(imagenCanasta,personajeX,personajeY,ANCHO_PERSONAJE,ALTURA_PERSONAJE);
 }
 function limpiarCanva(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
@@ -41,17 +46,18 @@ function actualizarPantalla(){
 }
 //mover Izquierda 
 function moverIzquierda(){
-    personajeX=personajeX-10;
+    personajeX=personajeX-15;
     actualizarPantalla();
 }
 //mover Derecha
 function moverDerecha(){
-    personajeX=personajeX+10;
+    personajeX=personajeX+15;
     actualizarPantalla();
 }
 function dibujarLimon(){
-    ctx.fillStyle="green";
-    ctx.fillRect(limonX,limonY,ANCHO_LIMON,ALTURA_LIMON)
+    //ctx.fillStyle="green";
+    //ctx.fillRect(limonX,limonY,ANCHO_LIMON,ALTURA_LIMON)
+    ctx.drawImage(imagenLimon,limonX,limonY,ANCHO_LIMON,ALTURA_LIMON);  
 }
 function bajarLimon(){
     limonY=limonY+10;
