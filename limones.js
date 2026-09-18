@@ -1,7 +1,7 @@
 let canvas=document.getElementById("areaJuego");
 let ctx=canvas.getContext("2d");
 
-const ALTURA_SUELO=12;
+const ALTURA_SUELO=20;
 const ALTURA_PERSONAJE=110;
 const ANCHO_PERSONAJE=70;
 const ANCHO_LIMON=30;
