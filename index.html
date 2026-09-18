@@ -1,26 +1,64 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Caza Estrellas</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#07070b"/>
+  <title>Caza Estrellas · Atrapar Limones</title>
   <link href="limones.css" rel="stylesheet"/>
   <script src="utils.js"></script>
 </head>
 <body onload="iniciar()">
-  <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
-    <h2>Autor: Josue Vilcacundo</h2>
-    <canvas id="areaJuego" width="600" height="400"></canvas>
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>Vidas: <span id="txtVidas">3</span></p>
-    </div>
-    <div class="botones">
-      <button onclick="moverIzquierda()">Izquierda</button>
-      <button onclick="moverDerecha()">Derecha</button>
-      <button onclick="reiniciar()">Reiniciar</button>
-    </div>
-  </div>
+  <main class="contenedor">
+    <header class="hero">
+      <div class="hero__eyebrow">◈ ARCADE // TJ EDITION</div>
+      <h1>Atrapar <span>Limones</span></h1>
+      <p class="hero__sub">Si del cielo te caen limones, conviértelos en puntos.</p>
+      <div class="hero__author">Autor: <strong>Josue Vilcacundo</strong></div>
+    </header>
+
+    <section class="game-shell" aria-label="Zona de juego">
+      <div class="game-frame">
+        <div class="game-frame__top">
+          <span class="status-dot"></span>
+          <span>LIVE PLAY</span>
+          <span class="game-frame__line"></span>
+          <span>600 × 400</span>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="areaJuego" width="600" height="400"></canvas>
+          <div class="canvas-glow" aria-hidden="true"></div>
+        </div>
+      </div>
+
+      <div class="panel" aria-label="Marcador">
+        <div class="stat">
+          <span class="stat__label">PUNTAJE</span>
+          <strong id="txtPuntaje">0</strong>
+        </div>
+        <div class="stat stat--lives">
+          <span class="stat__label">VIDAS</span>
+          <strong id="txtVidas">3</strong>
+        </div>
+      </div>
+
+      <div class="botones" aria-label="Controles del juego">
+        <button type="button" onclick="moverIzquierda()" aria-label="Mover a la izquierda">
+          <span class="button-icon">←</span><span>Izquierda</span>
+        </button>
+        <button type="button" onclick="moverDerecha()" aria-label="Mover a la derecha">
+          <span>Derecha</span><span class="button-icon">→</span>
+        </button>
+        <button type="button" class="button--accent" onclick="reiniciar()" aria-label="Reiniciar juego">
+          <span class="button-icon">↻</span><span>Reiniciar</span>
+        </button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>CAZA LIMONES</span><span>•</span><span>PRECISIÓN · VELOCIDAD · REFLEJOS</span>
+    </footer>
+  </main>
   <script src="limones.js"></script>
 </body>
 </html>
